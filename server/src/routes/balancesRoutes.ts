@@ -10,6 +10,10 @@ class BalancesRoutes {
 
     config(): void {
         this.router.get('/', balancesController.balances);
+        this.router.get('/:id', balancesController.getBalance);
+        this.router.post('/', balancesController.addBalance);
+        this.router.delete('/:id', balancesController.deleteBalance);
+        this.router.put('/:id', balancesController.updateBalance);
     }
 }
 
