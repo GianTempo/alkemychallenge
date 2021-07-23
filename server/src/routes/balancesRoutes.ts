@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+import balancesController from '../controllers/balancesController'
 class BalancesRoutes {
     public router: Router = Router();
 
@@ -8,7 +9,7 @@ class BalancesRoutes {
     }
 
     config(): void {
-        this.router.get('/', (req, res) => { res.send('Hello, balances'); });
+        this.router.get('/', balancesController.balances);
     }
 }
 
