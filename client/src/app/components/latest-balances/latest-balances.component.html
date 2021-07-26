@@ -12,7 +12,7 @@
         <tbody>
             <tr *ngFor = "let balance of latestBalances">
                 <td>{{balance.concept}}</td>
-                <td>{{balance.amount}}</td>
+                <td>${{balance.amount}}</td>
                 <td>{{balance.createdAt}}</td>
                 <td>{{balance.transactionType}}</td>
             </tr>

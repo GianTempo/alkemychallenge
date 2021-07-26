@@ -9,14 +9,16 @@ import { LatestBalancesComponent } from './components/latest-balances/latest-bal
 import { NavComponent } from './components/nav/nav.component';
 
 //Services
-import { BalancesService } from './services/balances.service'
+import { BalancesService } from './services/balances.service';
+import { AddBalanceComponent } from './components/add-balance/add-balance.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     BalanceComponent,
     LatestBalancesComponent,
-    NavComponent
+    NavComponent,
+    AddBalanceComponent
   ],
   imports: [
     BrowserModule,

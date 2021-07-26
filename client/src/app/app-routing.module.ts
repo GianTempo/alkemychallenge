@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddBalanceComponent } from './components/add-balance/add-balance.component';
 
 //Components imports
 import { BalanceComponent } from './components/balance/balance.component';
@@ -18,7 +19,7 @@ const routes: Routes = [
   {
     path: 'balances/add',
     pathMatch: 'full',
-    component: LatestBalancesComponent
+    component: AddBalanceComponent
   }
 ];
 
