@@ -1,1 +1,42 @@
-<p>add-balance works!</p>
+<div class="card">
+    <div class="card-body">
+        <form>
+            <div class="input-group mb-2">
+                <span class="input-group-text">$</span>
+                <input [(ngModel)]="balance.concept" 
+                class="form-control" 
+                type="text" 
+                name="concept" 
+                id="conceptInput" 
+                placeholder="Concept" 
+                autofocus>
+            </div>
+            <div class="form-group mb-2">
+                <input [(ngModel)]="balance.amount" 
+                class="form-control" type="number" 
+                name="amount" 
+                id="amountInput" 
+                placeholder="0" 
+                autofocus>
+            </div>
+            <div class="form-group mb-2">
+                <input [(ngModel)]="balance.createdAt" 
+                type="datetime-local" 
+                name="date" 
+                id="dateInput"
+                class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <select
+                [(ngModel)]="balance.transactionType"
+                name="transactionType"
+                id="transactionTypeInput"
+                class="form-control">
+                    <option value="output">Spending</option>
+                    <option value="input">Income</option>
+                </select>
+            </div>
+            <button class="btn btn-success btn-block" (click)="saveTransaction()">Submit</button>
+        </form>
+    </div>
+</div>
