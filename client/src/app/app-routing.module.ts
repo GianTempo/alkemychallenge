@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 //Components imports
 import { BalanceComponent } from './components/balance/balance.component';
+import { LatestBalancesComponent } from './components/latest-balances/latest-balances.component';
 
 const routes: Routes = [
   {
@@ -13,8 +14,12 @@ const routes: Routes = [
   {
     path: 'balances',
     component: BalanceComponent
+  },
+  {
+    path: 'balances/add',
+    pathMatch: 'full',
+    component: LatestBalancesComponent
   }
-  
 ];
 
 @NgModule({
