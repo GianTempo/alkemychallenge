@@ -18,11 +18,6 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'balances/add',
-    pathMatch: 'full',
-    component: AddBalanceComponent
-  },
-  {
     path: 'balances',
     pathMatch: 'full',
     component: BalanceComponent

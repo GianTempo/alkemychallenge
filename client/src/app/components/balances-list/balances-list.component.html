@@ -1,0 +1,97 @@
+<!--Add and edit transaction form-->
+<div class="card">
+    <div class="card-body">
+        <form>
+            <div class="input-group mb-2">
+                <span class="input-group-text">$</span>
+                <input [(ngModel)]="transaction.concept" 
+                class="form-control" 
+                type="text" 
+                name="concept" 
+                id="conceptInput" 
+                placeholder="Concept" 
+                autofocus>
+            </div>
+            <div class="form-group mb-2">
+                <input [(ngModel)]="transaction.amount" 
+                class="form-control" type="number" 
+                name="amount" 
+                id="amountInput" 
+                placeholder="0" 
+                autofocus>
+            </div>
+            <div class="form-group mb-2">
+                <input [(ngModel)]="transaction.createdAt" 
+                type="datetime-local" 
+                name="date" 
+                id="dateInput"
+                class="form-control"
+                [value]="transaction.createdAt | date: 'medium'">
+            </div>
+            <div *ngIf="currentOperation == 'add'" class="form-group mb-3">
+                <select
+                [(ngModel)]="transaction.transactionType"
+                name="transactionType"
+                id="transactionTypeInput"
+                class="form-control">
+                    <option value="" selected disabled>Transaction Type</option>
+                    <option value="output">Spending</option>
+                    <option value="input">Income</option>
+                </select>
+            </div>
+            <button class="btn btn-success btn-block" (click)="saveTransaction()">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!--Table of user's incomes-->
+<table class="table table-striped table-bordered mt-2">
+    <thead>
+        <caption class="caption-top">Incomes</caption>
+        <tr>
+            <th>Id</th>
+            <th>Concept</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let income of incomes">
+            <td>{{income.id}}</td>
+            <td>{{income.concept}}</td>
+            <td>{{income.amount}}</td>
+            <td>{{income.createdAt | date:'medium'}}</td>
+            <td class="d-flex justify-content-around">
+                <button class="btn btn-secondary" (click)="setTransaction(income)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <button class="btn btn-primary" (click)="deleteTransaction(income.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!--Table of user's spendings-->
+<table class="table table-striped table-bordered mt-2">
+    <thead>
+        <caption class="caption-top">Spendings</caption>
+        <tr>
+            <th>Id</th>
+            <th>Concept</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let spending of spendings">
+            <td>{{spending.id}}</td>
+            <td>{{spending.concept}}</td>
+            <td>{{spending.amount}}</td>
+            <td>{{spending.createdAt | date:'medium'}}</td>
+            <td  class="d-flex justify-content-around">
+                <button class="btn btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <button class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
