@@ -4,22 +4,28 @@ import { AddBalanceComponent } from './components/add-balance/add-balance.compon
 
 //Components imports
 import { BalanceComponent } from './components/balance/balance.component';
+import { HomeComponent } from './components/home/home.component';
 import { LatestBalancesComponent } from './components/latest-balances/latest-balances.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/balances',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
-    path: 'balances',
-    component: BalanceComponent
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'balances/add',
     pathMatch: 'full',
     component: AddBalanceComponent
+  },
+  {
+    path: 'balances',
+    pathMatch: 'full',
+    component: BalanceComponent
   }
 ];
 

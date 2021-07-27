@@ -11,7 +11,8 @@ import { NavComponent } from './components/nav/nav.component';
 
 //Services
 import { BalancesService } from './services/balances.service';
-import { AddBalanceComponent } from './components/add-balance/add-balance.component'
+import { AddBalanceComponent } from './components/add-balance/add-balance.component';
+import { HomeComponent } from './components/home/home.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AddBalanceComponent } from './components/add-balance/add-balance.compon
     BalanceComponent,
     LatestBalancesComponent,
     NavComponent,
-    AddBalanceComponent
+    AddBalanceComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
