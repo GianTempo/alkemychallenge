@@ -63,8 +63,8 @@ class BalancesController {
      * It recieves the id of the balance the user wants to delete.
      */
     public async deleteBalance(req: Request, res: Response) {
-        await pool.query('DELETE FROM balances WHERE id = ?', req.params.id);
-        res.send('Deleted balance');
+        await pool.query('DELETE FROM balances WHERE id = ?', [req.params.balanceId]);
+        res.send({status: 200, message: `Deleted transaction with id ${req.params.balanceId}`});
     }
 
 
