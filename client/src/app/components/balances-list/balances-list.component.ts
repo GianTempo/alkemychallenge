@@ -86,20 +86,11 @@ export class BalancesListComponent implements OnInit {
         err => console.log(err)
       )
       console.log('Updated Transaction')
+      console.log(this.transaction)
     }
     this.getBalances() //Updates incomes and spendings arrays
      
-    this.transaction = { //Resets transaction to allow user to add another transaction
-      clientId: 1,
-      concept: '',
-      amount: 0,
-      createdAt: new Date(),
-      transactionType: ''
-    }
-     
-     if (this.currentOperation == 'edit') { //If user is editing an existing transaction, change current transaction to add
-       this.currentOperation = 'add';
-     }
+    this.resetTransaction()
    }
   
   /**@function setTransaction
@@ -123,5 +114,22 @@ export class BalancesListComponent implements OnInit {
       },
       err => console.log(err)
     )
+  }
+
+  /**@function resetTransaction
+   * Resets transaction object if user doesn't want to execute an action in add transaction form.
+  */
+  resetTransaction(): void {
+    this.transaction = {
+      clientId: 1,
+      concept: '',
+      amount: 0,
+      createdAt: new Date(),
+      transactionType: ''
+    }
+
+    if (this.currentOperation == 'edit') { //If user is editing an existing transaction, change current transaction to add
+      this.currentOperation = 'add';
+    }
   }
 }
