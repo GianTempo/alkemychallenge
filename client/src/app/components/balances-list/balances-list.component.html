@@ -69,7 +69,7 @@
                 <td>{{income.createdAt | date: 'medium' }}</td>
                 <td class="d-flex justify-content-around">
                     <button class="btn btn-secondary" (click)="setTransaction(income)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    <button class="btn btn-primary" (click)="deleteTransaction(income.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modelId" (click)="setTransaction(income)"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </td>
             </tr>
         </tbody>
@@ -97,9 +97,32 @@
                 <td>{{spending.createdAt | date:'medium'}}</td>
                 <td  class="d-flex justify-content-around">
                     <button class="btn btn-secondary" (click)="setTransaction(spending)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    <button class="btn btn-primary" (click)="deleteTransaction(spending.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modelId" (click)="setTransaction(spending)"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </td>
             </tr>
         </tbody>
     </table>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modelId">
+  Launch
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete transaction</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the transaction {{transaction.concept}}?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="deleteTransaction(transaction.id)" data-bs-dismiss="modal">Delete</button>
+            </div>
+        </div>
+    </div>
 </div>
