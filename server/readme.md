@@ -21,3 +21,9 @@ balancesController.ts contains all the methods that are necessary to retrieve an
 Here you can find the indexRoutes and balancesRoutes files. The first one contains the route for the main route. Nothing too fancy.</br>
 The second one contains all the routes of balances, where it redirects all the HTTP methods such as get, post or put to their respective methods in the
 balance controller. It also defines wich parameters each route will need.
+
+## How to run it
+If you have a console window open in this folder, you just need to run the next script:
+```bash
+npm run dev
+```
