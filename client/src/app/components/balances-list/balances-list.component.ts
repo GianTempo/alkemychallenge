@@ -56,13 +56,13 @@ export class BalancesListComponent implements OnInit {
   /**@function setIncomes
    * Filters incomes from the transactions array and stores it in incomes array*/
   setIncomes(): void {
-    this.incomes = this.transactions.filter(transaction => transaction.transactionType == 'input');
+    this.incomes = this.transactions.filter(transaction => transaction.transactionType == 'Income');
    }
 
   /**@function setSpendings
    * Filters spendings from the transactions array and stores it in spendings array*/
   setSpendings(): void {
-    this.spendings = this.transactions.filter(transaction => transaction.transactionType == 'output');
+    this.spendings = this.transactions.filter(transaction => transaction.transactionType == 'Spending');
   }
   
   /**@function saveTransaction
