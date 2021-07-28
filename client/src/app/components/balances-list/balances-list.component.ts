@@ -45,7 +45,6 @@ export class BalancesListComponent implements OnInit {
   getBalances(): void {
     this.bSvc.getBalances().subscribe(
       (res) => {
-        console.log('Updating balances')
         this.transactions = res;
         this.setIncomes();
         this.setSpendings()
@@ -76,19 +75,18 @@ export class BalancesListComponent implements OnInit {
         .subscribe(
           err => console.log(err),
           res => {
-            console.log(res)
+            this.getBalances()
           }
         )
     }
     else if (this.currentOperation == 'edit') {
       this.bSvc.editBalance(this.transaction.id, this.transaction).subscribe(
-        res => console.log(res),
+        res => {
+          this.getBalances()
+        },
         err => console.log(err)
       )
-      console.log('Updated Transaction')
-      console.log(this.transaction)
     }
-    this.getBalances() //Updates incomes and spendings arrays
      
     this.resetTransaction()
    }
@@ -109,7 +107,6 @@ export class BalancesListComponent implements OnInit {
   deleteTransaction(transactionId: number) {
     this.bSvc.deleteBalance(transactionId).subscribe(
       res => {
-        console.log(res)
         this.getBalances()
       },
       err => console.log(err)

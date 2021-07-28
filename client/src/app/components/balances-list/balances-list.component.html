@@ -29,7 +29,7 @@
                 name="date" 
                 id="dateInput"
                 class="form-control"
-                [value]="transaction.createdAt | date: 'medium'">
+                [value]="transaction.createdAt">
             </div>
             <div *ngIf="currentOperation == 'add'" class="form-group mb-3">
                 <select
@@ -66,7 +66,7 @@
                 <td>{{income.id}}</td>
                 <td>{{income.concept}}</td>
                 <td>{{income.amount}}</td>
-                <td>{{income.createdAt | date:'medium'}}</td>
+                <td>{{income.createdAt | date: 'medium' }}</td>
                 <td class="d-flex justify-content-around">
                     <button class="btn btn-secondary" (click)="setTransaction(income)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                     <button class="btn btn-primary" (click)="deleteTransaction(income.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -96,8 +96,8 @@
                 <td>{{spending.amount}}</td>
                 <td>{{spending.createdAt | date:'medium'}}</td>
                 <td  class="d-flex justify-content-around">
-                    <button class="btn btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    <button class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    <button class="btn btn-secondary" (click)="setTransaction(spending)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button class="btn btn-primary" (click)="deleteTransaction(spending.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </td>
             </tr>
         </tbody>
