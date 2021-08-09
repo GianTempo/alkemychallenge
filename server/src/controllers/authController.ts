@@ -22,7 +22,12 @@ class AuthController {
         }
         else { //Both user and password are correct
             const token = jwt.sign({ id: user.password }, 'secretKey')
-            return res.status(200).json({ token });
+            const id = user.id
+            return res.status(200).json({
+                message: 'success!',
+                token: token,
+                userId: id
+            });
         }
     }
 }
