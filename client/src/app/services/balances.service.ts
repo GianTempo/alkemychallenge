@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 import { Balance } from '../models/balance'
 
@@ -9,7 +10,7 @@ import { Balance } from '../models/balance'
 export class BalancesService {
 
   API_URL = 'http://localhost:3000/api/balances';
-  CLIENT_ID = '1';
+  CLIENT_ID = environment.clientId;
 
   constructor (private http: HttpClient) {
     
