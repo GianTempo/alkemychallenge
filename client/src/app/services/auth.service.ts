@@ -12,7 +12,8 @@ export class AuthService {
   constructor (private http: HttpClient) {
   }
   
-  login(username:string, password:string) {
+  login(username: string, password: string) {
+    console.log('loggin in ')
     let log = this.http.post(`${this.AUTH_URL}/login`, { username, password })
     log.subscribe(res => {
       this.response = res
@@ -22,9 +23,14 @@ export class AuthService {
     return log
   }
 
-  signin(username:string, password:string) {
-    let register = this.http.post(`${this.AUTH_URL}/signin`, { username, password })
-    register.subscribe(res => console.log(res))
+  signin(username: string, password: string) {
+    console.log('signin in ')
+    let register = this.http.post(`${this.AUTH_URL}/signup`, { username, password })
+    register.subscribe(res => {
+      this.response = res
+      localStorage.setItem('token', this.response.token)
+      this.setId(this.response.user)
+    });
     return register
   }
 

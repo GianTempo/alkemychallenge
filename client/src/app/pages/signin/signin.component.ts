@@ -26,7 +26,7 @@ export class SigninComponent implements OnInit {
           let response:any = res
           if (response.token) {
             this.resetUser();
-            this.router.navigate([''])
+            this.router.navigate(['/home'])
           }
           else {
             this.isSigninValid = false;
