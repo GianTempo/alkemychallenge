@@ -7,8 +7,12 @@ class AuthController {
         const { username, password } = req.body;
         const newUser = { username, password };
         await pool.query('INSERT INTO users set ?', [newUser]);
+        const user = await pool.query("SELECT * FROM users WHERE username = ?", [username]);
         const token = jwt.sign({ id: newUser.password }, 'secretKey')
-        res.status(200).json({ token });
+        res.status(200).json({
+            token: token,
+            user: user[0].id
+        });
     }
 
     public async login(req: Request, res: Response) {
