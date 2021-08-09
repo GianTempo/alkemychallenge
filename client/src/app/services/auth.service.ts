@@ -25,6 +25,7 @@ export class AuthService {
   signin(username:string, password:string) {
     let register = this.http.post(`${this.AUTH_URL}/signin`, { username, password })
     register.subscribe(res => console.log(res))
+    return register
   }
 
   isUserLoggedIn(): boolean {

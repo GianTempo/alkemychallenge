@@ -9,6 +9,7 @@ import { LatestBalancesComponent } from './components/latest-balances/latest-bal
 import { LoginComponent } from './pages/login/login.component';
 import { LoginGuardGuard } from './guards/login-guard.guard';
 import { MainComponent } from './pages/main/main.component';
+import { SigninComponent } from './pages/signin/signin.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'signin',
+    component: SigninComponent
   },
   {
     path: 'home',
