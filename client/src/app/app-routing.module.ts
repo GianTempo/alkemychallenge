@@ -4,8 +4,9 @@ import { AddBalanceComponent } from './components/add-balance/add-balance.compon
 
 //Components imports
 import { BalanceComponent } from './components/balance/balance.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { LatestBalancesComponent } from './components/latest-balances/latest-balances.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
     path: 'balances',
     pathMatch: 'full',
     component: BalanceComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 
