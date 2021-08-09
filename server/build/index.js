@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
-const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
+const authRoutes_1 = __importDefault(require("./routes/authRoutes"));
 const balancesRoutes_1 = __importDefault(require("./routes/balancesRoutes"));
 class Server {
     constructor() {
@@ -21,7 +21,7 @@ class Server {
         this.app.use(express_1.default.json()); //module to let express understand JSON files
     }
     routes() {
-        this.app.use('/', indexRoutes_1.default);
+        this.app.use('/api/auth', authRoutes_1.default);
         this.app.use('/api/balances', balancesRoutes_1.default);
     }
     start() {

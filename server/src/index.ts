@@ -2,7 +2,7 @@ import express, { Application } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 
-import indexRoutes from './routes/indexRoutes';
+import authRoutes from './routes/authRoutes';
 import balancesRoutes from './routes/balancesRoutes';
 class Server {
 
@@ -22,7 +22,7 @@ class Server {
     }
 
     routes(): void {
-        this.app.use('/', indexRoutes);
+        this.app.use('/api/auth', authRoutes);
         this.app.use('/api/balances', balancesRoutes);
     }
 

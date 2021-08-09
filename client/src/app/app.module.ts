@@ -12,8 +12,11 @@ import { NavComponent } from './components/nav/nav.component';
 //Services
 import { BalancesService } from './services/balances.service';
 import { AddBalanceComponent } from './components/add-balance/add-balance.component';
-import { HomeComponent } from './components/home/home.component';
-import { BalancesListComponent } from './components/balances-list/balances-list.component'
+import { HomeComponent } from './pages/home/home.component';
+import { BalancesListComponent } from './components/balances-list/balances-list.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MainComponent } from './pages/main/main.component';
+import { SigninComponent } from './pages/signin/signin.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { BalancesListComponent } from './components/balances-list/balances-list.
     NavComponent,
     AddBalanceComponent,
     HomeComponent,
-    BalancesListComponent
+    BalancesListComponent,
+    LoginComponent,
+    MainComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
